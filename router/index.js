@@ -15,6 +15,7 @@ const router = express.Router();
 // Authentication
 router.post("/login", authcontroller.login);
 router.delete("/logout", authcontroller.logout);
+router.get("/refreshtoken", refreshtoken);
 
 // admin
 router.post("/admin", admincontroller.createadmin);

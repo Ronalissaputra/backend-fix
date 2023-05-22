@@ -14,7 +14,7 @@ module.exports = {
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
       },
-      nama_ibuhamil: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -109,6 +109,10 @@ module.exports = {
       role: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      refresh_token: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       adminId: {
         type: DataTypes.INTEGER,

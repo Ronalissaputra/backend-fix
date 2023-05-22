@@ -1,4 +1,4 @@
-const { Superadmin, Admin } = require("../models");
+const { Superadmin, Admin, Ibuhamil } = require("../models");
 const jwt = require("jsonwebtoken");
 
 exports.refreshtoken = async (req, res) => {
@@ -10,13 +10,22 @@ exports.refreshtoken = async (req, res) => {
         refresh_token: refreshtoken,
       },
     });
-    if (!user) {
+    if (!user || user.length === 0) {
       user = await Admin.findAll({
         where: {
           refresh_token: refreshtoken,
         },
       });
     }
+
+    if (!user || user.length === 0) {
+      user = await Ibuhamil.findAll({
+        where: {
+          refresh_token: refreshtoken,
+        },
+      });
+    }
+
     if (!user[0]) return res.sendStatus(403);
     jwt.verify(
       refreshtoken,
@@ -26,8 +35,9 @@ exports.refreshtoken = async (req, res) => {
         const userId = user[0].id;
         const name = user[0].name;
         const email = user[0].email;
+        const userrole = user[0].role;
         const accesstoken = jwt.sign(
-          { userId, name, email },
+          { userId, name, email, userrole },
           process.env.ACCESS_TOKEN_SECRET,
           {
             expiresIn: "15s",

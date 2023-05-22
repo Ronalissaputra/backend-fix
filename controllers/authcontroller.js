@@ -56,6 +56,15 @@ exports.login = async (req, res) => {
           },
         }
       );
+    } else if (role === "pasien") {
+      await Ibuhamil.update(
+        { refresh_token: refreshtoken },
+        {
+          where: {
+            id: userId,
+          },
+        }
+      );
     }
     res.cookie("refreshtoken", refreshtoken, {
       httpOnly: true,
@@ -78,8 +87,16 @@ exports.logout = async (req, res) => {
       },
     });
 
-    if (!user) {
+    if (!user || user.length === 0) {
       user = await Admin.findOne({
+        where: {
+          refresh_token: refreshtoken,
+        },
+      });
+    }
+
+    if (!user || user.length === 0) {
+      user = await Ibuhamil.findOne({
         where: {
           refresh_token: refreshtoken,
         },
@@ -103,6 +120,17 @@ exports.logout = async (req, res) => {
       );
     } else if (user instanceof Admin) {
       await Admin.update(
+        {
+          refresh_token: null,
+        },
+        {
+          where: {
+            id: userId,
+          },
+        }
+      );
+    } else if (user instanceof Ibuhamil) {
+      await Ibuhamil.update(
         {
           refresh_token: null,
         },
