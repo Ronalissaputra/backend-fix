@@ -45,5 +45,6 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Superadmin",
     }
   );
+
   return Superadmin;
 };

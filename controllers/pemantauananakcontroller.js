@@ -1,18 +1,18 @@
-const { Anak } = require("../models");
+const { Pemantauananak } = require("../models");
 
-exports.getanak = async (req, res) => {
+exports.getpematauananak = async (req, res) => {
   try {
     let response;
     if (req.userrole === "superadmin") {
-      response = await Anak.findAll();
+      response = await Pemantauananak.findAll();
     } else if (req.userrole === "admin") {
-      response = await Anak.findAll({
+      response = await Pemantauananak.findAll({
         where: {
           adminId: req.userId,
         },
       });
     } else {
-      response = await Anak.findOne({
+      response = await Pemantauananak.findOne({
         where: {
           id: req.userId,
         },
@@ -24,10 +24,13 @@ exports.getanak = async (req, res) => {
   }
 };
 
-exports.createanak = async (req, res) => {
+exports.createpemantauananak = async (req, res) => {
   const { ...anakData } = req.body;
   try {
-    const anak = await Anak.create({ adminId: req.userId, ...anakData });
+    const anak = await Pemantauananak.create({
+      adminId: req.userId,
+      ...anakData,
+    });
     return res.status(200).json(anak);
   } catch (error) {
     console.log(error);

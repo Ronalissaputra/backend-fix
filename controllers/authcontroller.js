@@ -1,4 +1,4 @@
-const { Superadmin, Admin } = require("../models");
+const { Superadmin, Admin, Ibuhamil } = require("../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -10,6 +10,11 @@ exports.login = async (req, res) => {
     if (!user || user.length === 0) {
       user = await Admin.findAll({ where: { email: req.body.email } });
       role = "admin";
+    }
+
+    if (!user || user.length === 0) {
+      user = await Ibuhamil.findAll({ where: { email: req.body.email } });
+      role = "pasien";
     }
 
     const match = await bcrypt.compare(req.body.password, user[0].password);

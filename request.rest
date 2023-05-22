@@ -35,12 +35,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hb
 
 
 ###
-POST http://localhost:5000/post
+POST http://localhost:5000/anak
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJzYXlhIiwiZW1haWwiOiJzYXlhQGdtYWlsLmNvbSIsImlhdCI6MTY4NDc0Mzk2MiwiZXhwIjoxNjg0ODMwMzYyfQ.fNtYijB6gQhVVVgp68SR4rGU_RTgdjWvFlbXtdPZcRQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJvcGV0IiwiZW1haWwiOiJvcGV0QGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ3NjI2ODIsImV4cCI6MTY4NDc2MjcwMn0.GliKDV4vvgkRdZjET_tIOnwQHxTB3v2W_Q3YovFnZ8U
 
 {
-    "name": "mocsssaadia"
+    "nama": "monika",
+    "ibuhamilId": "5"
 }
 
 
@@ -49,8 +50,8 @@ POST http://localhost:5000/admin
 Content-Type: application/json
 
 {
-    "name": "ofin",
-    "email": "ofin@gmail.com",
+    "name": "oyen",
+    "email": "oyen@gmail.com",
     "password": "123",
     "confPassword": "123",
     "role": "admin"
@@ -61,7 +62,7 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "ronal@gmail.com",
+    "email": "oyen@gmail.com",
     "password": "123"
 }
 
@@ -69,8 +70,8 @@ Content-Type: application/json
 DELETE http://localhost:5000/logout
 
 ###
-GET http://localhost:5000/anak
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJyb25hbCIsImVtYWlsIjoicm9uYWxAZ21haWwuY29tIiwidXNlcnJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDc1NTE1MSwiZXhwIjoxNjg0NzU1MTcxfQ.svdUnIjchGzJKtYTwQ1-LuqDKMa_wva8fJHmMDHiprw
+GET http://localhost:5000/pemantauananak
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJveWVuIiwiZW1haWwiOiJveWVuQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ3NjYwMDEsImV4cCI6MTY4NDc2NjAyMX0.MvETT8KB52hzN-jDNuUsB0vbJnlpzIarHetOlh3BLh0
 
 ###
 POST http://localhost:5000/anak
@@ -80,3 +81,42 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hb
 {
     "name": "Fifin zaitun"
 }
+
+###
+GET http://localhost:5000/ibuhamil
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJveWVuIiwiZW1haWwiOiJveWVuQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ3NjMwODQsImV4cCI6MTY4NDc2MzEwNH0.wVnBPvCvoLSTihrN_aFgWGtkuLO-g7-FjZChkeLKHpg
+
+###
+POST http://localhost:5000/ibuhamil
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJvcGV0IiwiZW1haWwiOiJvcGV0QGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ3NjEwMjAsImV4cCI6MTY4NDc2MTA0MH0.QtHOwcQtVIzEyVouwTeK1JTBYJgqm-LAD8KG87TXHIY
+
+{
+    "nama_ibuhamil": "ani",
+    "umur": "21",
+    "lama_nikah": "10",
+    "suku": "makassar",
+    "agama": "islam",
+    "pendidikan": "sarjana ekonomi",
+    "pekerjaan": "dosen",
+    "alamat": "makassar",
+    "nomor_telefon": "082188079182",
+    "golongan_darah": "B",
+    "nomor_bpjs": "1234567890",
+    "tempat_pemeriksaan": "pustu",
+    "nama_suami": "atan",
+    "umur_suami": "21",
+    "agama_suami": "islam",
+    "suku_suami": "makassar",
+    "pendidikan_suami": "sarjana ekonomi",
+    "pekerjaan_suami": "dosen",
+    "alamat_suami": "makassar",
+    "nomortelefon_suami": "082188079182",
+    "email": "ani@gmail.com",
+    "password": "123",
+    "role": "pasien"
+}
+
+###
+GET http://localhost:5000/ibuhamil
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJvZmluIiwiZW1haWwiOiJvZmluQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ3NTc3NTIsImV4cCI6MTY4NDc1Nzc3Mn0.gniPrHVmSePR8VgJdfnTdQpZpNtway0LrDXILarv8S0
