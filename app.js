@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const { sequelize } = require("./models");
 const { router } = require("./router");
 
@@ -9,6 +10,7 @@ dotenv.config();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 app.use(router);
 
 app.listen({ port: 5000 }, async () => {
