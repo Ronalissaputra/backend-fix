@@ -1,0 +1,82 @@
+POST http://localhost:5000/user
+Content-Type: application/json
+
+{
+    "name": "saya",
+    "email": "saya@gmail.com",
+    "password": "123",
+    "confPassword": "123",
+    "role": "admin"
+}
+
+###
+GET http://localhost:5000/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJyb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsImlhdCI6MTY4NDc0Njk2MywiZXhwIjoxNjg0NzQ2OTgzfQ.3T85BhPRX3-Yfvv8JlFlV5iXnvCp4L02DjAsuP81r94
+
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "ronalis@gmail.com",
+    "password": "997193"
+}
+
+###
+GET http://localhost:5000/token
+
+###
+DELETE http://localhost:5000/logout
+
+###
+GET http://localhost:5000/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJzYXlhIiwiZW1haWwiOiJzYXlhQGdtYWlsLmNvbSIsImlhdCI6MTY4NDc0NDQ3NiwiZXhwIjoxNjg0NzQ0NDk2fQ.1etnPSA0gyUrLB-R24e5AtcO8Vw_b-vcnfpCbg0RhoA
+
+
+###
+POST http://localhost:5000/post
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJzYXlhIiwiZW1haWwiOiJzYXlhQGdtYWlsLmNvbSIsImlhdCI6MTY4NDc0Mzk2MiwiZXhwIjoxNjg0ODMwMzYyfQ.fNtYijB6gQhVVVgp68SR4rGU_RTgdjWvFlbXtdPZcRQ
+
+{
+    "name": "mocsssaadia"
+}
+
+
+###
+POST http://localhost:5000/admin
+Content-Type: application/json
+
+{
+    "name": "ofin",
+    "email": "ofin@gmail.com",
+    "password": "123",
+    "confPassword": "123",
+    "role": "admin"
+}
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "ronal@gmail.com",
+    "password": "123"
+}
+
+###
+DELETE http://localhost:5000/logout
+
+###
+GET http://localhost:5000/anak
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJyb25hbCIsImVtYWlsIjoicm9uYWxAZ21haWwuY29tIiwidXNlcnJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDc1NTE1MSwiZXhwIjoxNjg0NzU1MTcxfQ.svdUnIjchGzJKtYTwQ1-LuqDKMa_wva8fJHmMDHiprw
+
+###
+POST http://localhost:5000/anak
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJyb25hbCIsImVtYWlsIjoicm9uYWxAZ21haWwuY29tIiwiaWF0IjoxNjg0NzU0ODI1LCJleHAiOjE2ODQ3NTQ4NDV9.9WpT-F0fIRqvMcnjuLzqTXD15fexQJ3ZEAnUWDOPsbc
+
+{
+    "name": "Fifin zaitun"
+}
