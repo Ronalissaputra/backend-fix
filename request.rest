@@ -62,8 +62,8 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "ani@gmail.com",
-    "password": "123"
+    "email": "ronalis@gmail.com",
+    "password": "ronalis12"
 }
 
 ###
@@ -92,10 +92,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hb
 ###
 POST http://localhost:5000/ibuhamil
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJveWVuIiwiZW1haWwiOiJveWVuQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ3Njc2MjMsImV4cCI6MTY4NDc2NzY0M30.bjApuzBrDqoGJi1Q6yCILNf1ndtocvb5VFUdJLW5AEs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ4NTQ1OTgsImV4cCI6MTY4NDg1NDYxOH0.DxCPalhQOHojxl4AfFhqrHHKfvJTgM6BrxhmczFquhk
 
 {
-    "name": "ani",
+    "name": "Ani",
     "umur": "21",
     "lama_nikah": "10",
     "suku": "makassar",
@@ -115,8 +115,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hb
     "pekerjaan_suami": "dosen",
     "alamat_suami": "makassar",
     "nomortelefon_suami": "082188079182",
-    "email": "ani@gmail.com",
-    "password": "123",
+    "email": "anibong@gmail.com",
+    "password": "anibong12",
     "role": "pasien"
 }
 
