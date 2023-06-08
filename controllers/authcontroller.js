@@ -109,9 +109,7 @@ exports.logout = async (req, res) => {
 
     if (user instanceof Superadmin) {
       await Superadmin.update(
-        {
-          refresh_token: null,
-        },
+        { refresh_token: null },
         {
           where: {
             id: userId,
@@ -120,9 +118,7 @@ exports.logout = async (req, res) => {
       );
     } else if (user instanceof Admin) {
       await Admin.update(
-        {
-          refresh_token: null,
-        },
+        { refresh_token: null },
         {
           where: {
             id: userId,
@@ -131,9 +127,7 @@ exports.logout = async (req, res) => {
       );
     } else if (user instanceof Ibuhamil) {
       await Ibuhamil.update(
-        {
-          refresh_token: null,
-        },
+        { refresh_token: null },
         {
           where: {
             id: userId,

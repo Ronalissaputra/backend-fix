@@ -16,3 +16,12 @@ exports.createadmin = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.getadmin = async (req, res) => {
+  try {
+    const response = await Admin.findAll();
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+  }
+};

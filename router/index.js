@@ -1,70 +1,59 @@
 const express = require("express");
-const authcontroller = require("../controllers/authcontroller");
-const admincontroller = require("../controllers/admincontroller");
-const superadmincontroller = require("../controllers/superadmincontroller");
-const anakcontroller = require("../controllers/anakcontroller");
-const ibuhamilcontroller = require("../controllers/ibuhamilcontroller");
-const pemantauankehamilan = require("../controllers/pemantauankehamilancontroller");
-const pemantauannifascontroller = require("../controllers/pemantauannifascontroller");
-const pemantauananakcontroller = require("../controllers/pemantauananakcontroller");
-const { verifytoken } = require("../middleware/verifytoken");
-const { refreshtoken } = require("../controllers/refreshtoken");
-
 const router = express.Router();
+const { verifytoken } = require("../middleware/verifytoken");
+const {
+  authcontroller,
+  superadmincontroller,
+  admincontroller,
+  ibuhamilcontroller,
+  anakcontroller,
+  pemantauananakcontroller,
+  pemantauannifascontroller,
+  refreshtokencontroller,
+  pemantauankehamilancontroller,
+} = require("../controllers");
 
-// Authentication
-router.post("/login", authcontroller.login);
-router.delete("/logout", authcontroller.logout);
-router.get("/refreshtoken", refreshtoken);
+router.post("/api/login", authcontroller.login);
+router.delete("/api/logout", authcontroller.logout);
+router.get("/api/refreshtoken", refreshtokencontroller.refreshtoken);
 
-// admin
-router.post("/admin", admincontroller.createadmin);
+router.post("/api/admin", admincontroller.createadmin);
+router.get("/api/admin", admincontroller.getadmin);
 
-// superadmin
-router.post("/superadmin", superadmincontroller.createsuperadmin);
+router.post("/api/superadmin", superadmincontroller.createsuperadmin);
 
 // anak
-router.get("/anak", verifytoken, anakcontroller.getanak);
-router.post("/anak", verifytoken, anakcontroller.createanak);
+router
+  .route("api/anak")
+  .get(verifytoken, anakcontroller.getanak)
+  .post(verifytoken, anakcontroller.createanak);
 
 // ibuhamil
-router.post("/ibuhamil", verifytoken, ibuhamilcontroller.createibuhamil);
-router.get("/ibuhamil", verifytoken, ibuhamilcontroller.getibuhamil);
+router
+  .route("/api/ibuhamil")
+  .get(verifytoken, ibuhamilcontroller.getibuhamil)
+  .post(verifytoken, ibuhamilcontroller.createibuhamil);
+router
+  .route("/api/ibuhamil/:id")
+  .get(verifytoken, ibuhamilcontroller.getibuhamilbyid)
+  .delete(verifytoken, ibuhamilcontroller.deleteibuhamil);
 
 // pemantauan kehamilan
-router.post(
-  "/kehamilan",
-  verifytoken,
-  pemantauankehamilan.createpemantauankehamilan
-);
-router.get(
-  "/kehamilan",
-  verifytoken,
-  pemantauankehamilan.getpemantauankehamilan
-);
+router
+  .route("/api/kehamilan")
+  .post(verifytoken, pemantauankehamilancontroller.createpemantauankehamilan)
+  .get(verifytoken, pemantauankehamilancontroller.getpemantauankehamilan);
 
-// Pemantauan nifas
-router.post(
-  "/nifas",
-  verifytoken,
-  pemantauannifascontroller.createpemantauannifas
-);
-router.get(
-  "/nifas",
-  verifytoken,
-  pemantauannifascontroller.getpemantauanknifas
-);
+// pemantauan nifas
+router
+  .route("/api/nifas")
+  .post(verifytoken, pemantauannifascontroller.createpemantauannifas)
+  .get(verifytoken, pemantauannifascontroller.getpemantauanknifas);
 
-// Pemantauan anak
-router.post(
-  "/pemantauananak",
-  verifytoken,
-  pemantauananakcontroller.createpemantauananak
-);
-router.get(
-  "/pemantauananak",
-  verifytoken,
-  pemantauananakcontroller.getpematauananak
-);
+// pemantauan anak
+router
+  .route("/api/pemantauananak")
+  .post(verifytoken, pemantauananakcontroller.createpemantauananak)
+  .get(verifytoken, pemantauananakcontroller.getpematauananak);
 
 module.exports = { router };

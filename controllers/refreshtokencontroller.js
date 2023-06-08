@@ -2,8 +2,8 @@ const { Superadmin, Admin, Ibuhamil } = require("../models");
 const jwt = require("jsonwebtoken");
 
 exports.refreshtoken = async (req, res) => {
+  const refreshtoken = req.cookies.refreshtoken;
   try {
-    const refreshtoken = req.cookies.refreshtoken;
     if (!refreshtoken) return res.sendStatus(401);
     let user = await Superadmin.findAll({
       where: {

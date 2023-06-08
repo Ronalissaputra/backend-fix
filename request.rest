@@ -1,37 +1,36 @@
-POST http://localhost:5000/user
+POST http://localhost:5000/superadmin
 Content-Type: application/json
 
 {
-    "name": "saya",
-    "email": "saya@gmail.com",
+    "name": "anibong",
+    "email": "anibong@gmail.com",
     "password": "123",
     "confPassword": "123",
-    "role": "admin"
+    "role": "superadmin"
 }
 
 ###
-GET http://localhost:5000/user
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJyb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsImlhdCI6MTY4NDc0Njk2MywiZXhwIjoxNjg0NzQ2OTgzfQ.3T85BhPRX3-Yfvv8JlFlV5iXnvCp4L02DjAsuP81r94
+GET http://localhost:5000/admin
 
 
 ###
-POST http://localhost:5000/login
+POST http://localhost:5000/api/login
 Content-Type: application/json
 
 {
     "email": "ronalis@gmail.com",
-    "password": "997193"
+    "password": "ronalis12"
 }
 
 ###
-GET http://localhost:5000/token
+GET http://localhost:5000/api/refreshtoken
 
 ###
-DELETE http://localhost:5000/logout
+DELETE http://localhost:5000/api/logout
 
 ###
-GET http://localhost:5000/post
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJzYXlhIiwiZW1haWwiOiJzYXlhQGdtYWlsLmNvbSIsImlhdCI6MTY4NDc0NDQ3NiwiZXhwIjoxNjg0NzQ0NDk2fQ.1etnPSA0gyUrLB-R24e5AtcO8Vw_b-vcnfpCbg0RhoA
+GET http://localhost:5000/api/ibuhamil/52
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODYyMDQwNDEsImV4cCI6MTY4NjIwNDA1Nn0.o8YpWjpIvx241bChkoAtSaEYvXkqEMPUDgiOOsebJ7w
 
 
 ###
@@ -58,7 +57,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/login
+POST http://localhost:5000/api/login
 Content-Type: application/json
 
 {
@@ -67,14 +66,16 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/refreshtoken
+GET http://localhost:5000/ibuhamil/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODYxOTgyNjUsImV4cCI6MTY4NjE5ODI4NX0.qMszYZcykbmVdxIEFbbaB-Qm-RnZUlVTmUN1y7vVTac
+
 
 ###
-DELETE http://localhost:5000/logout
+DELETE http://localhost:5000/api/logout
 
 ###
-GET http://localhost:5000/pemantauananak
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoib3llbkBnbWFpbC5jb20iLCJ1c2Vycm9sZSI6ImFkbWluIiwiaWF0IjoxNjg0NzY2NjEzLCJleHAiOjE2ODQ3NjY2Mjh9._fYFuNxHgKWrwMiCSYt3AnI7GgFHb7u1JV37fUknUiw
+GET http://localhost:5000/nifas
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODYwMzU4NDksImV4cCI6MTY4NjAzNTg2OX0.EtFMIrck9K0U8Tmar--JrcuTpdADCQBZgicKG3CgmuQ
 
 ###
 POST http://localhost:5000/anak
@@ -87,12 +88,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hb
 
 ###
 GET http://localhost:5000/ibuhamil
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJhbmkiLCJlbWFpbCI6ImFuaUBnbWFpbC5jb20iLCJ1c2Vycm9sZSI6InBhc2llbiIsImlhdCI6MTY4NDc2ODA3NSwiZXhwIjoxNjg0NzY4MDkwfQ.uO7OUmveyLIzQ14AUyTlHWryfAfHkCbDgQIm5UERGhU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJveWVuIiwiZW1haWwiOiJveWVuQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODU4ODYwMDUsImV4cCI6MTY4NTg4NjAyMH0.b2VsMnhgKGBziwLKoM-IffjvYoT34x6oO_ZsWBI4RYU
 
 ###
 POST http://localhost:5000/ibuhamil
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ4NTQ1OTgsImV4cCI6MTY4NDg1NDYxOH0.DxCPalhQOHojxl4AfFhqrHHKfvJTgM6BrxhmczFquhk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODU4ODcwOTksImV4cCI6MTY4NTg4NzExOX0.QRDvPqDprps5NUtab6tAhgeReGvIidRrqjvOHGLd0-k
 
 {
     "name": "Ani",
@@ -123,3 +124,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hb
 ###
 GET http://localhost:5000/ibuhamil
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJvZmluIiwiZW1haWwiOiJvZmluQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ3NTc3NTIsImV4cCI6MTY4NDc1Nzc3Mn0.gniPrHVmSePR8VgJdfnTdQpZpNtway0LrDXILarv8S0
+
+###
+GET http://localhost:5000/nifas
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODUyNzEyMzQsImV4cCI6MTY4NTI3MTI0NH0.yyE2mg1AaN-T7nArWZHdW9cKFf6yHef94jvdLf8DNLs
