@@ -13,7 +13,7 @@ exports.getibuhamil = async (req, res) => {
       whereClause = {
         [Op.or]: [
           {
-            name: {
+            nama: {
               [Op.like]: "%" + search + "%",
             },
           },
@@ -28,7 +28,7 @@ exports.getibuhamil = async (req, res) => {
       whereClause = {
         [Op.or]: [
           {
-            name: {
+            nama: {
               [Op.like]: "%" + search + "%",
             },
           },
@@ -44,7 +44,7 @@ exports.getibuhamil = async (req, res) => {
       whereClause = {
         [Op.or]: [
           {
-            name: {
+            nama: {
               [Op.like]: "%" + search + "%",
             },
           },
@@ -129,6 +129,31 @@ exports.getibuhamilbyid = async (req, res) => {
     }
 
     return res.status(200).json(ibuhamil);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+exports.updateibuhamil = async (req, res) => {
+  const ibuhamilId = req.params.id;
+  const { password, ...ibuhamilData } = req.body;
+
+  try {
+    const ibuhamil = await Ibuhamil.findByPk(ibuhamilId);
+    if (!ibuhamil) {
+      return res.status(404).json({ error: "Ibu hamil not found" });
+    }
+
+    if (password) {
+      const salt = await bcrypt.genSalt();
+      const hashpassword = await bcrypt.hash(password, salt);
+      ibuhamilData.password = hashpassword;
+    }
+
+    await ibuhamil.update(ibuhamilData);
+
+    return res.status(200).json({ message: "Ibu hamil updated successfully" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });

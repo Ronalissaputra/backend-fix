@@ -14,7 +14,27 @@ module.exports = {
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
       },
-      name: {
+      nama: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      umur: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      prodi: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      semester: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      nomor_hp: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      alamat: {
         type: DataTypes.STRING,
         allowNull: false,
       },

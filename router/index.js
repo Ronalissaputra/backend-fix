@@ -36,7 +36,8 @@ router
 router
   .route("/api/ibuhamil/:id")
   .get(verifytoken, ibuhamilcontroller.getibuhamilbyid)
-  .delete(verifytoken, ibuhamilcontroller.deleteibuhamil);
+  .delete(verifytoken, ibuhamilcontroller.deleteibuhamil)
+  .patch(verifytoken, ibuhamilcontroller.updateibuhamil);
 
 // pemantauan kehamilan
 router

@@ -29,8 +29,8 @@ GET http://localhost:5000/api/refreshtoken
 DELETE http://localhost:5000/api/logout
 
 ###
-GET http://localhost:5000/api/ibuhamil/52
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODYyMDQwNDEsImV4cCI6MTY4NjIwNDA1Nn0.o8YpWjpIvx241bChkoAtSaEYvXkqEMPUDgiOOsebJ7w
+GET http://localhost:5000/api/ibuhamil
+Authorization: Bearer 
 
 
 ###
@@ -66,12 +66,13 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/ibuhamil/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODYxOTgyNjUsImV4cCI6MTY4NjE5ODI4NX0.qMszYZcykbmVdxIEFbbaB-Qm-RnZUlVTmUN1y7vVTac
+GET http://localhost:5000/api/ibuhamil?search_query=&page=0&limit=5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIyLCJuYW1lIjoiUm9uYWxpcyIsImVtYWlsIjoicm9uYWxpc0BnbWFpbC5jb20iLCJ1c2Vycm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2MjMyNzc3LCJleHAiOjE2ODYyMzI4MDd9.srgXcFqAKXbfyu6_kqg0-bMuiCLNJAcavfWt5IsyU_4
 
 
 ###
-DELETE http://localhost:5000/api/logout
+DELETE http://localhost:5000/api/ibuhamil/54
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIyLCJuYW1lIjoiUm9uYWxpcyIsImVtYWlsIjoicm9uYWxpc0BnbWFpbC5jb20iLCJ1c2Vycm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2MjMzNTU1LCJleHAiOjE2ODYyMzM1ODV9.6rCCS7lDIDA2PAVtpmg6bczcVeGNCKAyfzUZyAB8abw
 
 ###
 GET http://localhost:5000/nifas
@@ -91,12 +92,12 @@ GET http://localhost:5000/ibuhamil
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJveWVuIiwiZW1haWwiOiJveWVuQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODU4ODYwMDUsImV4cCI6MTY4NTg4NjAyMH0.b2VsMnhgKGBziwLKoM-IffjvYoT34x6oO_ZsWBI4RYU
 
 ###
-POST http://localhost:5000/ibuhamil
+PATCH http://localhost:5000/api/ibuhamil/78
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODU4ODcwOTksImV4cCI6MTY4NTg4NzExOX0.QRDvPqDprps5NUtab6tAhgeReGvIidRrqjvOHGLd0-k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIyLCJuYW1lIjoiUm9uYWxpcyIsImVtYWlsIjoicm9uYWxpc0BnbWFpbC5jb20iLCJ1c2Vycm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2MjM4MTY3LCJleHAiOjE2ODYyMzgxOTd9.bux5kdmZmNP0mDKKPv5aLQ3fMGUPU7SssWwOvtU3rMQ
 
 {
-    "name": "Ani",
+    "name": "Samuel updated",
     "umur": "21",
     "lama_nikah": "10",
     "suku": "makassar",

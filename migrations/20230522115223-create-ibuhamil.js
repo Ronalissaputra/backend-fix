@@ -14,7 +14,7 @@ module.exports = {
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
       },
-      name: {
+      nama: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -50,7 +50,7 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      nomor_telefon: {
+      nomor_hp: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -62,7 +62,7 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      tempat_pemeriksaan: {
+      tempat_periksa: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -94,7 +94,31 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      nomortelefon_suami: {
+      nomorhp_suami: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      hamil_ke: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      jumlah_anak: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      siklus: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      lama_haid: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      hptp: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      hpl: {
         type: DataTypes.STRING,
         allowNull: false,
       },
