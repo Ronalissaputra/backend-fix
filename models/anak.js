@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Anak.init(
     {
-      nama_anak: {
+      nama: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      kondisi_lahir: {
+      kondisi_saat_lahir: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -63,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      saturasi: {
+      saturasi_o2: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -91,19 +91,23 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      warna_kulit: {
+      apperance: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      denyut_nadi: {
+      pulse: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      tonus_otot: {
+      grimace: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      usaha_nafas: {
+      activity: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      respiration: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -175,7 +179,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      walking: {
+      wallking: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -191,27 +195,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      bak: {
+      miksi: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      frekuensi_bak: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      warna_bak: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      bab: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      frekuensi_bab: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      warna_bab: {
+      defekasi: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -227,15 +215,39 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      terapi_yangdidapat: {
+      terapi: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      analisis_masalah: {
+      perawatan_talipusat: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      penatalaksanaan: {
+      imd: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      vitamin_k1: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      imunisasi_hepatitis: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      salep: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      kie: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      ppia: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      pemantauan_tumbuh_kembang: {
         type: DataTypes.STRING,
         allowNull: false,
       },

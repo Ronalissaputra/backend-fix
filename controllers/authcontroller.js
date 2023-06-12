@@ -20,18 +20,18 @@ exports.login = async (req, res) => {
     const match = await bcrypt.compare(req.body.password, user[0].password);
     if (!match) return res.status(400).json({ message: "password salah" });
     const userId = user[0].id;
-    const name = user[0].nama;
+    const nama = user[0].nama;
     const email = user[0].email;
     const userrole = user[0].role;
     const accesstoken = jwt.sign(
-      { userId, name, email, userrole },
+      { userId, nama, email, userrole },
       process.env.ACCESS_TOKEN_SECRET,
       {
         expiresIn: "30s",
       }
     );
     const refreshtoken = jwt.sign(
-      { userId, name, email, userrole },
+      { userId, nama, email, userrole },
       process.env.REFRESH_TOKEN_SECRET,
       {
         expiresIn: "1d",

@@ -63,7 +63,7 @@ exports.getibuhamil = async (req, res) => {
       offset: offset,
       limit: limit,
       order: [["id", "DESC"]],
-      include: [Anak],
+      // include: [Anak],
     });
 
     const totalRows = count;
@@ -99,17 +99,21 @@ exports.createibuhamil = async (req, res) => {
 };
 
 exports.deleteibuhamil = async (req, res) => {
-  const ibuhamilId = req.params.id;
+  const uuid = req.params.uuid;
 
   try {
-    const ibuhamil = await Ibuhamil.findByPk(ibuhamilId);
+    const ibuhamil = await Ibuhamil.findOne({
+      where: {
+        uuid,
+      },
+    });
     if (!ibuhamil) {
       return res.status(404).json({ error: "Ibu hamil not found" });
     }
 
     await ibuhamil.destroy();
 
-    return res.status(200).json({ message: "Ibu hamil deleted successfully" });
+    return res.status(200).json({ message: "Ibuhamil deleted successfully" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });
@@ -117,17 +121,16 @@ exports.deleteibuhamil = async (req, res) => {
 };
 
 exports.getibuhamilbyid = async (req, res) => {
-  const ibuhamilId = req.params.id;
-
+  const uuid = req.params.uuid;
   try {
-    const ibuhamil = await Ibuhamil.findByPk(ibuhamilId, {
-      include: [Anak],
+    const ibuhamil = await Ibuhamil.findOne({
+      where: {
+        uuid,
+      },
     });
-
     if (!ibuhamil) {
       return res.status(404).json({ error: "Ibu hamil not found" });
     }
-
     return res.status(200).json(ibuhamil);
   } catch (error) {
     console.log(error);
@@ -136,11 +139,15 @@ exports.getibuhamilbyid = async (req, res) => {
 };
 
 exports.updateibuhamil = async (req, res) => {
-  const ibuhamilId = req.params.id;
+  const uuid = req.params.uuid;
   const { password, ...ibuhamilData } = req.body;
 
   try {
-    const ibuhamil = await Ibuhamil.findByPk(ibuhamilId);
+    const ibuhamil = await Ibuhamil.findOne({
+      where: {
+        uuid,
+      },
+    });
     if (!ibuhamil) {
       return res.status(404).json({ error: "Ibu hamil not found" });
     }
@@ -153,7 +160,7 @@ exports.updateibuhamil = async (req, res) => {
 
     await ibuhamil.update(ibuhamilData);
 
-    return res.status(200).json({ message: "Ibu hamil updated successfully" });
+    return res.status(200).json({ message: "Ibuhamil updated successfully" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });

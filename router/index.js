@@ -18,13 +18,13 @@ router.delete("/api/logout", authcontroller.logout);
 router.get("/api/refreshtoken", refreshtokencontroller.refreshtoken);
 
 router.post("/api/admin", admincontroller.createadmin);
-router.get("/api/admin", admincontroller.getadmin);
+router.get("/api/admin", verifytoken, admincontroller.getadmin);
 
 router.post("/api/superadmin", superadmincontroller.createsuperadmin);
 
 // anak
 router
-  .route("api/anak")
+  .route("/api/anak")
   .get(verifytoken, anakcontroller.getanak)
   .post(verifytoken, anakcontroller.createanak);
 
@@ -34,7 +34,7 @@ router
   .get(verifytoken, ibuhamilcontroller.getibuhamil)
   .post(verifytoken, ibuhamilcontroller.createibuhamil);
 router
-  .route("/api/ibuhamil/:id")
+  .route("/api/ibuhamil/:uuid")
   .get(verifytoken, ibuhamilcontroller.getibuhamilbyid)
   .delete(verifytoken, ibuhamilcontroller.deleteibuhamil)
   .patch(verifytoken, ibuhamilcontroller.updateibuhamil);

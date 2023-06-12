@@ -1,4 +1,4 @@
-const { Anak } = require("../models");
+const { Anak, Ibuhamil } = require("../models");
 const { Op } = require("sequelize");
 
 exports.getanak = async (req, res) => {
@@ -10,20 +10,20 @@ exports.getanak = async (req, res) => {
     let whereClause;
     if (req.userrole === "superadmin") {
       whereClause = {
-        nama_anak: {
+        nama: {
           [Op.like]: "%" + search + "%",
         },
       };
     } else if (req.userrole === "admin") {
       whereClause = {
-        nama_anak: {
+        nama: {
           [Op.like]: "%" + search + "%",
         },
         adminId: req.userId,
       };
     } else {
       whereClause = {
-        nama_anak: {
+        nama: {
           [Op.like]: "%" + search + "%",
         },
         id: req.userId,
@@ -35,6 +35,7 @@ exports.getanak = async (req, res) => {
       offset: offset,
       limit: limit,
       order: [["id", "DESC"]],
+      include: Ibuhamil,
     });
 
     const totalRows = count;
