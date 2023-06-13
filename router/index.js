@@ -22,12 +22,6 @@ router.get("/api/admin", verifytoken, admincontroller.getadmin);
 
 router.post("/api/superadmin", superadmincontroller.createsuperadmin);
 
-// anak
-router
-  .route("/api/anak")
-  .get(verifytoken, anakcontroller.getanak)
-  .post(verifytoken, anakcontroller.createanak);
-
 // ibuhamil
 router
   .route("/api/ibuhamil")
@@ -39,11 +33,25 @@ router
   .delete(verifytoken, ibuhamilcontroller.deleteibuhamil)
   .patch(verifytoken, ibuhamilcontroller.updateibuhamil);
 
+// anak
+router
+  .route("/api/anak")
+  .get(verifytoken, anakcontroller.getanak)
+  .post(verifytoken, anakcontroller.createanak);
+router
+  .route("/api/anak/:id")
+  .patch(verifytoken, anakcontroller.updateanak)
+  .get(verifytoken, anakcontroller.getanakbyid)
+  .delete(verifytoken, anakcontroller.deleteanak);
+
 // pemantauan kehamilan
 router
-  .route("/api/kehamilan")
+  .route("/api/pemantauankehamilan")
   .post(verifytoken, pemantauankehamilancontroller.createpemantauankehamilan)
   .get(verifytoken, pemantauankehamilancontroller.getpemantauankehamilan);
+router
+  .route("/api/pemantauankehamilan/:id")
+  .delete(verifytoken, pemantauankehamilancontroller.deletepemantauankehamilan);
 
 // pemantauan nifas
 router

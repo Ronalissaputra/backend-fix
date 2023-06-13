@@ -1,4 +1,5 @@
 const { Admin } = require("../models");
+const { Op } = require("sequelize");
 const bcrypt = require("bcrypt");
 
 exports.createadmin = async (req, res) => {
@@ -18,10 +19,45 @@ exports.createadmin = async (req, res) => {
 };
 
 exports.getadmin = async (req, res) => {
+  const page = parseInt(req.query.page) || 0;
+  const limit = parseInt(req.query.limit) || 10;
+  const search = req.query.search_query || "";
+  const offset = limit * page;
   try {
-    const response = await Admin.findAll();
-    res.status(200).json(response);
+    const whereClause = {
+      [Op.or]: [
+        {
+          nama: {
+            [Op.like]: "%" + search + "%",
+          },
+        },
+        {
+          email: {
+            [Op.like]: "%" + search + "%",
+          },
+        },
+      ],
+    };
+
+    const { count, rows } = await Admin.findAndCountAll({
+      where: whereClause,
+      offset: offset,
+      limit: limit,
+      order: [["id", "DESC"]],
+    });
+
+    const totalRows = count;
+    const totalPage = Math.ceil(totalRows / limit);
+
+    return res.status(200).json({
+      response: rows,
+      page: page,
+      limit: limit,
+      totalRows: totalRows,
+      totalPage: totalPage,
+    });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };

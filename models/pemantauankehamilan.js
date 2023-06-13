@@ -23,11 +23,27 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      tempat_kunjungan: {
+      tempat: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      hasil_anamnesis: {
+      keluhan: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      pola_makan: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      pola_istrahat: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      pola_seksual: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      aktifitas_fisik: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -39,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      lingkarlengan_atas: {
+      lingkaran_lengan_atas: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -63,7 +79,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      sklera: {
+      sclera: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -71,7 +87,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      kesehatan_mulut: {
+      kesehatan_gigi_dan_mulut: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -87,11 +103,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      bentuk_payudarah: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      puting: {
+      payudarah: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -99,31 +111,31 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      lukabekas_operasi: {
+      luka_bekas_operasi: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      leopold_i: {
+      leopold_1: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      leopold_ii: {
+      leopold_2: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      leopold_iii: {
+      leopold_3: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      leopold_iv: {
+      leopold_4: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      ekstremitas: {
+      ekstermitas: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      kondisi_vulvavagina: {
+      kondisi_vulva: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -135,7 +147,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      glukosa_urineataudarah: {
+      glukosa_urine: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -143,7 +155,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      rapidtes_hiv: {
+      rapid_test_hiv: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -151,15 +163,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      analisis_masalah: {
+      pemberian_tablet_tambah_darah: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      permberiantablet_tambahdarah: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      statusimunisasi_tt: {
+      status_imunisasi_tt: {
         type: DataTypes.STRING,
         allowNull: false,
       },

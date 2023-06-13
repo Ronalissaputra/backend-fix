@@ -1,11 +1,11 @@
-POST http://localhost:5000/superadmin
+POST http://localhost:5000/api/superadmin
 Content-Type: application/json
 
 {
-    "name": "anibong",
-    "email": "anibong@gmail.com",
-    "password": "123",
-    "confPassword": "123",
+    "name": "Ronalis",
+    "email": "ronalissaputra@gmail.com",
+    "password": "ronalissaputra12",
+    "confPassword": "ronalissaputra12",
     "role": "superadmin"
 }
 
@@ -18,19 +18,20 @@ POST http://localhost:5000/api/login
 Content-Type: application/json
 
 {
-    "email": "ronalis@gmail.com",
-    "password": "ronalis12"
+    "email": "jhon@gmail.com",
+    "password": "jhon12"
 }
 
 ###
-GET http://localhost:5000/api/refreshtoken
+GET http://localhost:5000/api/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWEiOiJqaG9uIiwiZW1haWwiOiJqaG9uQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODY1NjQxNzMsImV4cCI6MTY4NjU2NDIwM30.QP_3JlUMgCvKdXMcpxAEE36Wd706ZDSCtqsxAXHyGAE
 
 ###
 DELETE http://localhost:5000/api/logout
 
 ###
 GET http://localhost:5000/api/ibuhamil
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoicm9uYWxpc3NhcHV0cmFAZ21haWwuY29tIiwidXNlcnJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNjg2NTYxNDM4LCJleHAiOjE2ODY1NjE0Njh9.DhgleWMizS0Srqjc3KYuNSIUa1gbJqXmSIwzOrce3CE
 
 
 ###
@@ -66,8 +67,8 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/api/anak
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWEiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODY1NDMzNTcsImV4cCI6MTY4NjU0MzM4N30.UQSOGKYo5pxduj4E4iIqs5bVwy_skCGOYwsotfigyQQ
+GET http://localhost:5000/api/pemantauankehamilan
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWEiOiJSb25hbGlzIiwiZW1haWwiOiJyb25hbGlzQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODY2NjMxNTQsImV4cCI6MTY4NjY2MzE4NH0.1n-gdTKNHBbPC6pf7nTDt76w7FGgK7CpF1S3LDoPZb8
 
 
 ###
@@ -88,38 +89,44 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hb
 }
 
 ###
-GET http://localhost:5000/ibuhamil
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJveWVuIiwiZW1haWwiOiJveWVuQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODU4ODYwMDUsImV4cCI6MTY4NTg4NjAyMH0.b2VsMnhgKGBziwLKoM-IffjvYoT34x6oO_ZsWBI4RYU
+GET http://localhost:5000/api/ibuhamil
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWEiOiJqaG9uIiwiZW1haWwiOiJqaG9uQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODY1NzYwMDUsImV4cCI6MTY4NjU3NjAzNX0.Qh07t9Hvcrfx9AIMFhUUCGJ5E556N5bKq8qyuc_rgD0
 
 ###
-PATCH http://localhost:5000/api/ibuhamil/78
+PATCH http://localhost:5000/api/ibuhamil/2636d7bd-2a02-499f-bd8d-e9a3b98d56c6
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIyLCJuYW1lIjoiUm9uYWxpcyIsImVtYWlsIjoicm9uYWxpc0BnbWFpbC5jb20iLCJ1c2Vycm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2MjM4MTY3LCJleHAiOjE2ODYyMzgxOTd9.bux5kdmZmNP0mDKKPv5aLQ3fMGUPU7SssWwOvtU3rMQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWEiOiJqaG9uIiwiZW1haWwiOiJqaG9uQGdtYWlsLmNvbSIsInVzZXJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODY2NTU3NDksImV4cCI6MTY4NjY1NTc3OX0.EoDoM8TPOi6t041I6w5-cPMVp9Zb5BHC-8VqPiDX2nw
 
 {
-    "name": "Samuel updated",
-    "umur": "21",
-    "lama_nikah": "10",
-    "suku": "makassar",
-    "agama": "islam",
-    "pendidikan": "sarjana ekonomi",
-    "pekerjaan": "dosen",
-    "alamat": "makassar",
-    "nomor_telefon": "082188079182",
-    "golongan_darah": "B",
-    "nomor_bpjs": "1234567890",
-    "tempat_pemeriksaan": "pustu",
-    "nama_suami": "atan",
-    "umur_suami": "21",
-    "agama_suami": "islam",
-    "suku_suami": "makassar",
-    "pendidikan_suami": "sarjana ekonomi",
-    "pekerjaan_suami": "dosen",
-    "alamat_suami": "makassar",
-    "nomortelefon_suami": "082188079182",
-    "email": "anibong@gmail.com",
-    "password": "anibong12",
-    "role": "pasien"
+    "nama": "asna updated",
+    "umur": "sa",
+    "lama_nikah": "sa",
+    "suku": "as",
+    "agama": "sas",
+    "pendidikan": "as",
+    "pekerjaan": "fdg",
+    "alamat": "dfg",
+    "nomor_hp": "dfd",
+    "golongan_darah": "fgd",
+      "nomor_bpjs": "fg",
+      "tempat_periksa": "dfg",
+      "nama_suami": "dfg",
+      "umur_suami": "sdf",
+      "agama_suami": "dfg",
+      "suku_suami": "dfg",
+      "pendidikan_suami": "dfg",
+      "pekerjaan_suami": "dfg",
+      "alamat_suami": "dfg",
+      "nomorhp_suami": "dfg",
+      "hamil_ke": "dfg",
+      "jumlah_anak": "dfg",
+      "siklus": "dfg",
+      "lama_haid": "dfg",
+      "hptp": "dfg",
+      "hpl": "dfg",
+      "email": "asna@gmail.com",
+      "password": "asna123",
+      "role": "pasien"
 }
 
 ###

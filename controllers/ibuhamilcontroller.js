@@ -1,4 +1,4 @@
-const { Ibuhamil, Anak } = require("../models");
+const { Ibuhamil, Admin } = require("../models");
 const { Op } = require("sequelize");
 const bcrypt = require("bcrypt");
 
@@ -63,7 +63,7 @@ exports.getibuhamil = async (req, res) => {
       offset: offset,
       limit: limit,
       order: [["id", "DESC"]],
-      // include: [Anak],
+      include: Admin,
     });
 
     const totalRows = count;
@@ -160,7 +160,7 @@ exports.updateibuhamil = async (req, res) => {
 
     await ibuhamil.update(ibuhamilData);
 
-    return res.status(200).json({ message: "Ibuhamil updated successfully" });
+    return res.status(200).json(ibuhamil);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });
