@@ -127,11 +127,17 @@ exports.getibuhamilbyid = async (req, res) => {
       where: {
         uuid,
       },
+      attributes: { exclude: ["password"] },
     });
+
     if (!ibuhamil) {
       return res.status(404).json({ error: "Ibu hamil not found" });
     }
-    return res.status(200).json(ibuhamil);
+    const response = {
+      ...ibuhamil.toJSON(),
+      password: req.query.includePassword ? ibuhamil.password : undefined,
+    };
+    return res.status(200).json(response);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });

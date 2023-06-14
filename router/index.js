@@ -13,14 +13,21 @@ const {
   pemantauankehamilancontroller,
 } = require("../controllers");
 
+// auth
 router.post("/api/login", authcontroller.login);
 router.delete("/api/logout", authcontroller.logout);
 router.get("/api/refreshtoken", refreshtokencontroller.refreshtoken);
 
-router.post("/api/admin", admincontroller.createadmin);
-router.get("/api/admin", verifytoken, admincontroller.getadmin);
-
-router.post("/api/superadmin", superadmincontroller.createsuperadmin);
+// admin
+router
+  .route("/api/admin")
+  .post(admincontroller.createadmin)
+  .get(verifytoken, admincontroller.getadmin);
+router
+  .route("/api/admin/:id")
+  .get(verifytoken, admincontroller.getadminbyid)
+  .patch(verifytoken, admincontroller.updateadmin)
+  .delete(verifytoken, admincontroller.deleteadmin);
 
 // ibuhamil
 router
@@ -64,5 +71,8 @@ router
   .route("/api/pemantauananak")
   .post(verifytoken, pemantauananakcontroller.createpemantauananak)
   .get(verifytoken, pemantauananakcontroller.getpematauananak);
+
+// superadmin
+router.post("/api/superadmin", superadmincontroller.createsuperadmin);
 
 module.exports = { router };

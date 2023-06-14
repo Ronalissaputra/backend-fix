@@ -4,10 +4,10 @@ module.exports = {
   async up(queryInterface, DataTypes) {
     await queryInterface.createTable("Superadmin", {
       id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER,
       },
       uuid: {
         type: DataTypes.STRING,

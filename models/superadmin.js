@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Superadmin.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
       uuid: {
         type: DataTypes.STRING,
         defaultValue: DataTypes.UUIDV4,

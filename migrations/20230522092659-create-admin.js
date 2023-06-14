@@ -20,23 +20,23 @@ module.exports = {
       },
       umur: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       prodi: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       semester: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       nomor_hp: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       alamat: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       email: {
         type: DataTypes.STRING,

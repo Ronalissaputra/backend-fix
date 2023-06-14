@@ -61,3 +61,77 @@ exports.getadmin = async (req, res) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+exports.getadminbyid = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const admin = await Admin.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!admin) {
+      return res.status(404).json({ error: "Admin not found" });
+    }
+
+    const response = {
+      ...admin.toJSON(),
+      password: req.query.includePassword ? admin.password : undefined,
+    };
+    return res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+exports.updateadmin = async (req, res) => {
+  const id = req.params.id;
+  const { password, ...adminData } = req.body;
+
+  try {
+    const admin = await Admin.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!admin) {
+      return res.status(404).json({ error: "Admin not found" });
+    }
+
+    if (password) {
+      const salt = await bcrypt.genSalt();
+      const hashpassword = await bcrypt.hash(password, salt);
+      adminData.password = hashpassword;
+    }
+
+    await admin.update(adminData);
+
+    return res.status(200).json(admin);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+exports.deleteadmin = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const admin = await Admin.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!admin) {
+      return res.status(404).json({ error: "Admin not found" });
+    }
+
+    await admin.destroy();
+
+    return res.status(200).json({ message: "Admin deleted successfully" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
