@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
       },
-      name: {
+      nama: {
         type: DataTypes.STRING,
         allowNull: false,
       },

@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "development_db",
+    "database": "poltekesmas_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

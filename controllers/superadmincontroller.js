@@ -2,7 +2,7 @@ const { Superadmin } = require("../models");
 const bcrypt = require("bcrypt");
 
 exports.createsuperadmin = async (req, res) => {
-  const { name, email, password, confPassword, role } = req.body;
+  const { nama, email, password, confPassword, role } = req.body;
   if (password !== confPassword)
     return res
       .status(400)
@@ -11,13 +11,13 @@ exports.createsuperadmin = async (req, res) => {
   const hashpassword = await bcrypt.hash(password, salt);
 
   try {
-    const user = await Superadmin.create({
-      name: name,
+    const superadmin = await Superadmin.create({
+      nama: nama,
       email: email,
       password: hashpassword,
       role: role,
     });
-    return res.status(200).json(user);
+    return res.status(200).json(superadmin);
   } catch (error) {
     console.log(error);
   }
