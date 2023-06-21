@@ -82,44 +82,6 @@ exports.getibuhamil = async (req, res) => {
   }
 };
 
-exports.createibuhamil = async (req, res) => {
-  const { password, ...ibuhamilData } = req.body;
-  const salt = await bcrypt.genSalt();
-  const hashpassword = await bcrypt.hash(password, salt);
-  try {
-    const ibuhamil = await Ibuhamil.create({
-      password: hashpassword,
-      adminId: req.userId,
-      ...ibuhamilData,
-    });
-    return res.status(200).json(ibuhamil);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-exports.deleteibuhamil = async (req, res) => {
-  const uuid = req.params.uuid;
-
-  try {
-    const ibuhamil = await Ibuhamil.findOne({
-      where: {
-        uuid,
-      },
-    });
-    if (!ibuhamil) {
-      return res.status(404).json({ error: "Ibu hamil not found" });
-    }
-
-    await ibuhamil.destroy();
-
-    return res.status(200).json({ message: "Ibuhamil deleted successfully" });
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ error: "Internal Server Error" });
-  }
-};
-
 exports.getibuhamilbyid = async (req, res) => {
   const uuid = req.params.uuid;
   try {
@@ -141,6 +103,22 @@ exports.getibuhamilbyid = async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+exports.createibuhamil = async (req, res) => {
+  const { password, ...ibuhamilData } = req.body;
+  const salt = await bcrypt.genSalt();
+  const hashpassword = await bcrypt.hash(password, salt);
+  try {
+    const ibuhamil = await Ibuhamil.create({
+      password: hashpassword,
+      adminId: req.userId,
+      ...ibuhamilData,
+    });
+    return res.status(200).json(ibuhamil);
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -167,6 +145,28 @@ exports.updateibuhamil = async (req, res) => {
     await ibuhamil.update(ibuhamilData);
 
     return res.status(200).json(ibuhamil);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+exports.deleteibuhamil = async (req, res) => {
+  const uuid = req.params.uuid;
+
+  try {
+    const ibuhamil = await Ibuhamil.findOne({
+      where: {
+        uuid,
+      },
+    });
+    if (!ibuhamil) {
+      return res.status(404).json({ error: "Ibu hamil not found" });
+    }
+
+    await ibuhamil.destroy();
+
+    return res.status(200).json({ message: "Ibuhamil deleted successfully" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });

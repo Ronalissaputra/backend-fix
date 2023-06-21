@@ -46,7 +46,7 @@ exports.getpemantauankehamilan = async (req, res) => {
       where: whereClause,
       offset: offset,
       limit: limit,
-      order: [["id", "DESC"]],
+      order: [["status", "ASC"]],
       include: Ibuhamil,
     });
 
@@ -66,6 +66,26 @@ exports.getpemantauankehamilan = async (req, res) => {
   }
 };
 
+exports.getpemantauankehamilanbyid = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const kehamilan = await Pemantauankehamilan.findOne({
+      where: {
+        id,
+      },
+    });
+
+    if (!kehamilan) {
+      return res.status(404).json({ error: "pemantauan kehamilan not found" });
+    }
+
+    return res.status(200).json(kehamilan);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 exports.createpemantauankehamilan = async (req, res) => {
   const { ...pemantauankehamilanData } = req.body;
   try {
@@ -76,6 +96,29 @@ exports.createpemantauankehamilan = async (req, res) => {
     return res.status(200).json(nifas);
   } catch (error) {
     console.log(error);
+  }
+};
+
+exports.updatepemantauankehamilan = async (req, res) => {
+  const id = req.params.id;
+  const { ...kehamilanData } = req.body;
+
+  try {
+    const kehamilan = await Pemantauankehamilan.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!kehamilan) {
+      return res.status(404).json({ error: "kehamilan not found" });
+    }
+
+    await kehamilan.update(kehamilanData);
+
+    return res.status(200).json(kehamilan);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 

@@ -58,13 +58,18 @@ router
   .get(verifytoken, pemantauankehamilancontroller.getpemantauankehamilan);
 router
   .route("/api/pemantauankehamilan/:id")
+  .get(verifytoken, pemantauankehamilancontroller.getpemantauankehamilanbyid)
+  .patch(verifytoken, pemantauankehamilancontroller.updatepemantauankehamilan)
   .delete(verifytoken, pemantauankehamilancontroller.deletepemantauankehamilan);
 
 // pemantauan nifas
 router
-  .route("/api/nifas")
-  .post(verifytoken, pemantauannifascontroller.createpemantauannifas)
-  .get(verifytoken, pemantauannifascontroller.getpemantauanknifas);
+  .route("/api/pemantauannifas")
+  .get(verifytoken, pemantauannifascontroller.getpemantauannifas)
+  .post(verifytoken, pemantauannifascontroller.createpemantauannifas);
+router
+  .route("/api/pemantauannifas/:id")
+  .delete(verifytoken, pemantauannifascontroller.deletepemantauannifas);
 
 // pemantauan anak
 router
