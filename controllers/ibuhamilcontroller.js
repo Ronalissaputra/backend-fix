@@ -1,4 +1,11 @@
-const { Ibuhamil, Admin } = require("../models");
+const {
+  Ibuhamil,
+  Admin,
+  Anak,
+  Pemantauannifas,
+  Pemantauananak,
+  Pemantauankehamilan,
+} = require("../models");
 const { Op } = require("sequelize");
 const bcrypt = require("bcrypt");
 
@@ -63,7 +70,13 @@ exports.getibuhamil = async (req, res) => {
       offset: offset,
       limit: limit,
       order: [["id", "DESC"]],
-      include: Admin,
+      include: [
+        { model: Admin },
+        { model: Anak },
+        { model: Pemantauannifas },
+        { model: Pemantauananak },
+        { model: Pemantauankehamilan },
+      ],
     });
 
     const totalRows = count;

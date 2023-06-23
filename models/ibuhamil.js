@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Admin, { foreignKey: "adminId" });
       this.hasMany(models.Anak, { foreignKey: "ibuhamilId" });
+      this.hasMany(models.Pemantauannifas, { foreignKey: "ibuhamilId" });
+      this.hasMany(models.Pemantauananak, { foreignKey: "ibuhamilId" });
+      this.hasMany(models.Pemantauankehamilan, { foreignKey: "ibuhamilId" });
     }
   }
   Ibuhamil.init(
