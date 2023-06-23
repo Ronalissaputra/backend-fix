@@ -7,6 +7,7 @@ const pemantauankehamilancontroller = require("./pemantauankehamilancontroller")
 const pemantauannifascontroller = require("./pemantauannifascontroller");
 const refreshtokencontroller = require("./refreshtokencontroller");
 const superadmincontroller = require("./superadmincontroller");
+const artikelcontroller = require("./artikelcontroller");
 
 module.exports = {
   authcontroller,
@@ -18,4 +19,5 @@ module.exports = {
   pemantauannifascontroller,
   refreshtokencontroller,
   superadmincontroller,
+  artikelcontroller,
 };

@@ -11,6 +11,7 @@ const {
   pemantauannifascontroller,
   refreshtokencontroller,
   pemantauankehamilancontroller,
+  artikelcontroller,
 } = require("../controllers");
 
 // auth
@@ -76,6 +77,13 @@ router
   .route("/api/pemantauananak")
   .post(verifytoken, pemantauananakcontroller.createpemantauananak)
   .get(verifytoken, pemantauananakcontroller.getpematauananak);
+
+// artikel
+router
+  .route("/api/artikel")
+  .get(artikelcontroller.getartikel)
+  .post(artikelcontroller.createartikel);
+router.route("/api/artikel/:id").delete(artikelcontroller.deteleartikel);
 
 // superadmin
 router.post("/api/superadmin", superadmincontroller.createsuperadmin);

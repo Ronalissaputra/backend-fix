@@ -1,5 +1,6 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const fileUpload = require("express-fileupload");
 const { sequelize } = require("./models");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -15,7 +16,9 @@ app.use(
 );
 app.use(cookieParser());
 app.use(express.json());
+app.use(fileUpload());
 app.use(router);
+app.use(express.static("public"));
 
 app.listen({ port: 5000 }, async () => {
   console.log("running http://localhost:5000");
