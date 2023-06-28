@@ -1,5 +1,5 @@
 const { Superadmin } = require("../models");
-const bcrypt = require("bcrypt");
+const argon2 = require("argon2");
 
 exports.createsuperadmin = async (req, res) => {
   const { nama, email, password, confPassword, role } = req.body;
@@ -7,8 +7,7 @@ exports.createsuperadmin = async (req, res) => {
     return res
       .status(400)
       .json({ message: "password dan confpassword tidak cocok" });
-  const salt = await bcrypt.genSalt();
-  const hashpassword = await bcrypt.hash(password, salt);
+  const hashpassword = await argon2.hash(password);
 
   try {
     const superadmin = await Superadmin.create({

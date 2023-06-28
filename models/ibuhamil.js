@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Pemantauannifas, { foreignKey: "ibuhamilId" });
       this.hasMany(models.Pemantauananak, { foreignKey: "ibuhamilId" });
       this.hasMany(models.Pemantauankehamilan, { foreignKey: "ibuhamilId" });
+      this.hasMany(models.Notification, { foreignKey: "ibuhamilId" });
     }
   }
   Ibuhamil.init(

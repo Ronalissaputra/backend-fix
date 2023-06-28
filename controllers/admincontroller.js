@@ -1,6 +1,6 @@
 const { Admin } = require("../models");
 const { Op } = require("sequelize");
-const bcrypt = require("bcrypt");
+const argon2 = require("argon2");
 
 exports.createadmin = async (req, res) => {
   const { password, confPassword, ...adminData } = req.body;
@@ -8,13 +8,13 @@ exports.createadmin = async (req, res) => {
     return res
       .status(400)
       .json({ message: "password dan confpassword tidak cocok" });
-  const salt = await bcrypt.genSalt();
-  const hashpassword = await bcrypt.hash(password, salt);
   try {
+    const hashpassword = await argon2.hash(password);
     const user = await Admin.create({ password: hashpassword, ...adminData });
     return res.status(200).json(user);
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -100,8 +100,7 @@ exports.updateadmin = async (req, res) => {
     }
 
     if (password) {
-      const salt = await bcrypt.genSalt();
-      const hashpassword = await bcrypt.hash(password, salt);
+      const hashpassword = await argon2.hash(password);
       adminData.password = hashpassword;
     }
 

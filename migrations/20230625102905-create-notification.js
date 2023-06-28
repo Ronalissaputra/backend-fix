@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, DataTypes) {
-    await queryInterface.createTable("Artikel", {
+    await queryInterface.createTable("Notification", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,15 +11,27 @@ module.exports = {
       },
       title: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
       body: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
-      image: {
+      tanggal: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
-      url: {
+      status: {
         type: DataTypes.STRING,
+        allowNull: false,
+      },
+      ibuhamilId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "Ibuhamil",
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,
@@ -32,6 +44,6 @@ module.exports = {
     });
   },
   async down(queryInterface, DataTypes) {
-    await queryInterface.dropTable("Artikel");
+    await queryInterface.dropTable("Notification");
   },
 };

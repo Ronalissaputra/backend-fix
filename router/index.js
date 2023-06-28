@@ -12,6 +12,7 @@ const {
   refreshtokencontroller,
   pemantauankehamilancontroller,
   artikelcontroller,
+  notificationcontroller,
 } = require("../controllers");
 
 // auth
@@ -83,9 +84,22 @@ router
   .route("/api/artikel")
   .get(artikelcontroller.getartikel)
   .post(artikelcontroller.createartikel);
-router.route("/api/artikel/:id").delete(artikelcontroller.deteleartikel);
+router
+  .route("/api/artikel/:id")
+  .delete(artikelcontroller.deteleartikel)
+  .patch(artikelcontroller.deteleartikel)
+  .get(artikelcontroller.getartikelbyid);
 
 // superadmin
 router.post("/api/superadmin", superadmincontroller.createsuperadmin);
+
+router
+  .route("/api/notification")
+  .get(verifytoken, notificationcontroller.getnotification)
+  .post(notificationcontroller.createnotification);
+router
+  .route("/api/notification/:id")
+  .put(notificationcontroller.updatenotification)
+  .get(notificationcontroller.getnotificationbyid);
 
 module.exports = { router };

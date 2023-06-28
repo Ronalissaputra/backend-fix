@@ -1,5 +1,5 @@
 const { Superadmin, Admin, Ibuhamil } = require("../models");
-const bcrypt = require("bcrypt");
+const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 
 exports.login = async (req, res) => {
@@ -17,7 +17,7 @@ exports.login = async (req, res) => {
       role = "pasien";
     }
 
-    const match = await bcrypt.compare(req.body.password, user[0].password);
+    const match = await argon2.verify(user[0].password, req.body.password);
     if (!match) return res.status(400).json({ message: "password salah" });
     const userId = user[0].id;
     const nama = user[0].nama;

@@ -1,13 +1,13 @@
 const {
   Ibuhamil,
-  Admin,
   Anak,
   Pemantauannifas,
   Pemantauananak,
   Pemantauankehamilan,
+  Notification,
 } = require("../models");
 const { Op } = require("sequelize");
-const bcrypt = require("bcrypt");
+const argon2 = require("argon2");
 
 exports.getibuhamil = async (req, res) => {
   const page = parseInt(req.query.page) || 0;
@@ -70,20 +70,41 @@ exports.getibuhamil = async (req, res) => {
       offset: offset,
       limit: limit,
       order: [["id", "DESC"]],
-      include: [
-        { model: Admin },
-        { model: Anak },
-        { model: Pemantauannifas },
-        { model: Pemantauananak },
-        { model: Pemantauankehamilan },
-      ],
     });
 
     const totalRows = count;
     const totalPage = Math.ceil(totalRows / limit);
 
+    const promises = rows.map(async (ibuhamil) => {
+      const [
+        anak,
+        pemantauannifas,
+        pemantauankehamilan,
+        pemantauananak,
+        notification,
+      ] = await Promise.all([
+        Anak.findOne({ where: { ibuhamilId: ibuhamil.id } }),
+        Pemantauananak.findOne({ where: { ibuhamilId: ibuhamil.id } }),
+        Pemantauannifas.findOne({ where: { ibuhamilId: ibuhamil.id } }),
+        Pemantauankehamilan.findOne({ where: { ibuhamilId: ibuhamil.id } }),
+        Notification.findOne({ where: { ibuhamilId: ibuhamil.id } }),
+      ]);
+
+      return {
+        ...ibuhamil.toJSON(),
+        Pemantauananak: pemantauananak,
+        Pemantauankehamilan: pemantauankehamilan,
+        Pemantauannifas: pemantauannifas,
+        Notification: notification,
+        Anak: anak,
+      };
+    });
+
+    // Jalankan semua promise secara paralel
+    const response = await Promise.all(promises);
+
     return res.status(200).json({
-      response: rows,
+      response: response,
       page: page,
       limit: limit,
       totalRows: totalRows,
@@ -121,8 +142,7 @@ exports.getibuhamilbyid = async (req, res) => {
 
 exports.createibuhamil = async (req, res) => {
   const { password, ...ibuhamilData } = req.body;
-  const salt = await bcrypt.genSalt();
-  const hashpassword = await bcrypt.hash(password, salt);
+  const hashpassword = await argon2.hash(password);
   try {
     const ibuhamil = await Ibuhamil.create({
       password: hashpassword,
@@ -150,8 +170,7 @@ exports.updateibuhamil = async (req, res) => {
     }
 
     if (password) {
-      const salt = await bcrypt.genSalt();
-      const hashpassword = await bcrypt.hash(password, salt);
+      const hashpassword = await argon2.hash(password);
       ibuhamilData.password = hashpassword;
     }
 

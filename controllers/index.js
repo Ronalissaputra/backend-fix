@@ -8,6 +8,7 @@ const pemantauannifascontroller = require("./pemantauannifascontroller");
 const refreshtokencontroller = require("./refreshtokencontroller");
 const superadmincontroller = require("./superadmincontroller");
 const artikelcontroller = require("./artikelcontroller");
+const notificationcontroller = require("./notificationcontroller");
 
 module.exports = {
   authcontroller,
@@ -20,4 +21,5 @@ module.exports = {
   refreshtokencontroller,
   superadmincontroller,
   artikelcontroller,
+  notificationcontroller,
 };

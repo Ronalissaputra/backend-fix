@@ -73,6 +73,7 @@ exports.getpemantauankehamilanbyid = async (req, res) => {
       where: {
         id,
       },
+      include: Ibuhamil,
     });
 
     if (!kehamilan) {
